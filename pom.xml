@@ -85,17 +85,29 @@
                             </relocations>
                             <artifactSet>
                                 <excludes>
+                                    <exclude>org.apache.jackrabbit:jackrabbit-data</exclude>
                                     <exclude>org.apache.jackrabbit:oak-core</exclude>
                                     <exclude>org.apache.jackrabbit:oak-commons</exclude>
                                     <exclude>org.apache.jackrabbit:oak-blob</exclude>
                                     <exclude>com.google.guava:guava</exclude>
                                     <exclude>commons-codec:commons-codec</exclude>
                                     <exclude>commons-io:commons-io</exclude>
+                                    <exclude>commons-logging:commons-logging</exclude>
+                                    <exclude>org.slf4j:jcl-over-slf4j</exclude>
+                                    <exclude>org.slf4j:slf4j-api</exclude>
                                     <exclude>javax.jcr:jcr</exclude>
                                     <exclude>org.apache.jackrabbit:jackrabbit-api</exclude>
                                     <exclude>org.apache.jackrabbit:jackrabbit-jcr-commons</exclude>
                                     <exclude>org.apache.tika:tika-core</exclude>
-                                    <exclude>org.slf4j:slf4j-api</exclude>
+                                    <exclude>org.apache.lucene:lucene-queries</exclude>
+                                    <exclude>org.apache.lucene:lucene-facet</exclude>
+                                    <exclude>org.apache.lucene:lucene-memory</exclude>
+                                    <exclude>org.apache.lucene:lucene-core</exclude>
+                                    <exclude>org.apache.lucene:lucene-highlighter</exclude>
+                                    <exclude>org.apache.lucene:lucene-misc</exclude>
+                                    <exclude>org.apache.lucene:lucene-backward-codecs</exclude>
+                                    <exclude>org.apache.lucene:lucene-sandbox</exclude>
+                                    <exclude>org.apache.lucene:lucene-suggest</exclude>
                                 </excludes>
                             </artifactSet>
                         </configuration>
@@ -122,64 +134,28 @@
             <version>${tika.version}</version>
         </dependency>
 
-        <!-- Lucene dependencies -->
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-core</artifactId>
-            <version>${lucene.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-analyzers-common</artifactId>
-            <version>${lucene.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-queryparser</artifactId>
-            <version>${lucene.version}</version>
-        </dependency>    
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-queries</artifactId>
-            <version>${lucene.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-suggest</artifactId>
-            <version>${lucene.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-highlighter</artifactId>
-            <version>${lucene.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-memory</artifactId>
-            <version>${lucene.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-misc</artifactId>
-            <version>${lucene.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.lucene</groupId>
-            <artifactId>lucene-facet</artifactId>
-            <version>${lucene.version}</version>
-        </dependency>
-
         <dependency>
             <groupId>org.apache.tika</groupId>
             <artifactId>tika-parsers</artifactId>
             <version>${tika.version}</version>
             <scope>test</scope>
-            <exclusions>
+<!--            <exclusions>
                 <exclusion>
                     <groupId>commons-logging</groupId>
                     <artifactId>commons-logging</artifactId>
                 </exclusion>
-            </exclusions>
+            </exclusions>-->
         </dependency>
     </dependencies>
+    
+    <pluginRepositories>
+        <pluginRepository>
+            <id>org.apache</id>
+            <name>Apache snapshots</name>
+            <url>http://repository.apache.org/content/repositories/snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>  
 </project>
