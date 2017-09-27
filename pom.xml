@@ -21,7 +21,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.tveimo</groupId>
-    <version>1.6.0-SNAPSHOT</version>
+    <version>1.6.5</version>
     <artifactId>oak-lucene-shaded</artifactId>
     <name>Oak Lucene (shaded)</name>
     <description>Oak Lucene integration subproject</description>
@@ -29,7 +29,7 @@
     <properties>
         <tika.version>1.5</tika.version>
         <lucene.version>4.7.1</lucene.version>
-        <oak.version>1.6.0</oak.version>
+        <oak.version>1.6.5</oak.version>
     </properties>
 
     <build>
