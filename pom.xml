@@ -29,7 +29,7 @@
     <properties>
         <tika.version>1.5</tika.version>
         <lucene.version>4.7.1</lucene.version>
-        <oak.version>1.8.4</oak.version>
+        <oak.version>1.8.7</oak.version>
     </properties>
 
     <build>
