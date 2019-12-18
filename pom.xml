@@ -27,7 +27,7 @@
     <description>Oak Lucene integration subproject</description>
 
     <properties>
-        <tika.version>1.5</tika.version>
+        <tika.version>1.23</tika.version>
         <lucene.version>4.7.1</lucene.version>
         <oak.version>1.10.7</oak.version>
     </properties>
