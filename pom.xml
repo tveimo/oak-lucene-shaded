@@ -21,15 +21,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.tveimo</groupId>
-    <version>1.20.0</version>
+    <version>1.76.0</version>
     <artifactId>oak-lucene-shaded</artifactId>
     <name>Oak Lucene (shaded)</name>
     <description>Oak Lucene integration subproject</description>
 
     <properties>
-        <tika.version>1.5</tika.version>
-        <lucene.version>4.7.1</lucene.version>
-        <oak.version>1.36</oak.version>
+        <tika.version>1.28.5</tika.version>
+        <lucene.version>4.7.2</lucene.version>
+        <oak.version>1.76</oak.version>
     </properties>
 
     <build>
@@ -38,7 +38,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>3.0.1</version>
+                <version>3.3.1</version>
                 <executions>
                     <execution>
                         <id>generate-sources-for-shade-plugin</id>
@@ -52,7 +52,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-                <version>3.0.0</version>
+                <version>3.6.0</version>
                 <executions>
                     <execution>
                         <phase>package</phase>
