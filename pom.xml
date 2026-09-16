@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
    Licensed to the Apache Software Foundation (ASF) under one or more
    contributor license agreements.  See the NOTICE file distributed with
@@ -21,15 +20,18 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.tveimo</groupId>
-    <version>1.76.0</version>
+    <version>1.90.0</version>
     <artifactId>oak-lucene-shaded</artifactId>
     <name>Oak Lucene (shaded)</name>
     <description>Oak Lucene integration subproject</description>
 
     <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <tika.version>1.28.5</tika.version>
         <lucene.version>4.7.2</lucene.version>
-        <oak.version>1.76.0</oak.version>
+        <oak.version>1.90.0</oak.version>
     </properties>
 
     <build>
@@ -82,13 +84,14 @@
                                     <pattern>org.tartarus.snowball</pattern>
                                     <shadedPattern>org.shaded.tartarus.snowball</shadedPattern>
                                 </relocation>
+                                <relocation>
+                                    <pattern>org.osgi.service</pattern>
+                                    <shadedPattern>org.shaded.osgi.service</shadedPattern>
+                                </relocation>
                             </relocations>
                             <artifactSet>
                                 <excludes>
                                     <exclude>org.apache.jackrabbit:jackrabbit-data</exclude>
-                                    <exclude>org.apache.jackrabbit:oak-core</exclude>
-                                    <exclude>org.apache.jackrabbit:oak-commons</exclude>
-                                    <exclude>org.apache.jackrabbit:oak-blob</exclude>
                                     <exclude>com.google.guava:guava</exclude>
                                     <exclude>commons-codec:commons-codec</exclude>
                                     <exclude>commons-io:commons-io</exclude>
@@ -113,7 +116,7 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>        
+            </plugin>
         </plugins>
     </build>
 
@@ -121,6 +124,11 @@
         <dependency>
             <groupId>org.apache.jackrabbit</groupId>
             <artifactId>oak-core</artifactId>
+            <version>${oak.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>oak-commons</artifactId>
             <version>${oak.version}</version>
         </dependency>
         <dependency>
@@ -135,6 +143,51 @@
         </dependency>
         <dependency>
             <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>oak-jackrabbit-api</artifactId>
+            <version>${oak.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>oak-api</artifactId>
+            <version>${oak.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>oak-security-spi</artifactId>
+            <version>${oak.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>oak-blob-plugins</artifactId>
+            <version>${oak.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>oak-core-spi</artifactId>
+            <version>${oak.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>oak-query-spi</artifactId>
+            <version>${oak.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>oak-blob</artifactId>
+            <version>${oak.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>oak-store-spi</artifactId>
+            <version>${oak.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
+            <artifactId>oak-store-document</artifactId>
+            <version>${oak.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jackrabbit</groupId>
             <artifactId>oak-lucene</artifactId>
             <version>${oak.version}</version>
         </dependency>
@@ -143,18 +196,11 @@
             <artifactId>tika-core</artifactId>
             <version>${tika.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.apache.tika</groupId>
             <artifactId>tika-parsers</artifactId>
             <version>${tika.version}</version>
             <scope>test</scope>
-<!--            <exclusions>
-                <exclusion>
-                    <groupId>commons-logging</groupId>
-                    <artifactId>commons-logging</artifactId>
-                </exclusion>
-            </exclusions>-->
         </dependency>
     </dependencies>
 </project>
